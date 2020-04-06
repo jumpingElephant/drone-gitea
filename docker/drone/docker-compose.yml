@@ -29,5 +29,6 @@ services:
       DRONE_RPC_PROTO: http
       DRONE_RPC_SECRET: e47c15b45f85ae80ae039f8dfb1bd7e7
       DRONE_RUNNER_NAME: drone-1
+      DRONE_GITEA_SERVER: 'http://gitea:3000'
     ports:
     - 3003:3000
