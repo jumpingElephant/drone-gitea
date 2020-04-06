@@ -8,7 +8,7 @@ services:
       - 80:80
     environment:
       DRONE_OPEN: 'false'
-      DRONE_HOST: 'https://drone.alex.com'
+      DRONE_HOST: 'http://drone'
       DRONE_ADMIN: 'alex'
       DRONE_GITEA: 'true'
       DRONE_GITEA_SERVER: 'http://gitea:3000'
