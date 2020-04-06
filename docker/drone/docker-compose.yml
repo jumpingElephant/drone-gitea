@@ -15,8 +15,9 @@ services:
       DRONE_GITEA_CLIENT_ID: 'a49cc1af-3497-469c-b036-b9975daf6ba5'
       DRONE_GITEA_CLIENT_SECRET: 'RBqqU4LXPHgYLPd-4smpERUGVGGR3ptjw47fzxkGyoU='
       DRONE_RPC_SECRET: 'e47c15b45f85ae80ae039f8dfb1bd7e7'
-      DRONE_SERVER_HOST: 'drone.alex.com'
+      DRONE_SERVER_HOST: 'drone'
       DRONE_SERVER_PROTO: 'http'
+      DRONE_LOGS_DEBUG: 'true'
 
   drone-runner:
     container_name: runner
