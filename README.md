@@ -1,4 +1,4 @@
-[![Build Status](http://drone.alex.com/api/badges/alex/code-with-quarkus/status.svg)](http://drone.alex.com/alex/code-with-quarkus)
+[![Build Status](http://drone/api/badges/alex/code-with-quarkus/status.svg)](http://drone/alex/code-with-quarkus)
 # code-with-quarkus project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
