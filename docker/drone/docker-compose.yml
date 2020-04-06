@@ -11,7 +11,7 @@ services:
       DRONE_HOST: 'http://drone'
       DRONE_ADMIN: 'alex'
       DRONE_GITEA: 'true'
-      DRONE_GITEA_SERVER: 'http://gitea:3000'
+      DRONE_GITEA_SERVER: 'http://172.21.0.4:3000'
       DRONE_GITEA_CLIENT_ID: 'a49cc1af-3497-469c-b036-b9975daf6ba5'
       DRONE_GITEA_CLIENT_SECRET: 'RBqqU4LXPHgYLPd-4smpERUGVGGR3ptjw47fzxkGyoU='
       DRONE_RPC_SECRET: 'e47c15b45f85ae80ae039f8dfb1bd7e7'
@@ -29,6 +29,5 @@ services:
       DRONE_RPC_PROTO: http
       DRONE_RPC_SECRET: e47c15b45f85ae80ae039f8dfb1bd7e7
       DRONE_RUNNER_NAME: drone-1
-      DRONE_GITEA_SERVER: 'http://gitea:3000'
     ports:
     - 3003:3000
