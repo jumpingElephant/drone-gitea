@@ -7,17 +7,16 @@ services:
     ports:
       - 80:80
     environment:
-      - DRONE_OPEN=false
-      - DRONE_HOST=https://drone.alex.com
-      - DRONE_ADMIN=alex
-      - DRONE_GITEA=true
-      - DRONE_GITEA_SERVER=http://gitea:3000
-      - DRONE_GITEA_CLIENT_ID=701ba6fa-12dd-4daa-a63c-7bff682ad37c
-      - DRONE_GITEA_CLIENT_SECRET=YwKiGIfsnsI7Oh4hS4iWHA0utQnMZRNESbYrT0NvTD0=
-      - DRONE_RPC_SECRET=e47c15b45f85ae80ae039f8dfb1bd7e7
-      - DRONE_SERVER_HOST=drone.alex.com
-      - DRONE_SERVER_PROTO=http
-      - DRONE_GIT_ALWAYS_AUTH=false
+      DRONE_OPEN: 'false'
+      DRONE_HOST: 'https://drone.alex.com'
+      DRONE_ADMIN: 'alex'
+      DRONE_GITEA: 'true'
+      DRONE_GITEA_SERVER: 'http://gitea:3000'
+      DRONE_GITEA_CLIENT_ID: 'a49cc1af-3497-469c-b036-b9975daf6ba5'
+      DRONE_GITEA_CLIENT_SECRET: 'RBqqU4LXPHgYLPd-4smpERUGVGGR3ptjw47fzxkGyoU='
+      DRONE_RPC_SECRET: 'e47c15b45f85ae80ae039f8dfb1bd7e7'
+      DRONE_SERVER_HOST: 'drone.alex.com'
+      DRONE_SERVER_PROTO: 'http'
 
   drone-runner:
     container_name: runner

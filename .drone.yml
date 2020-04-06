@@ -7,3 +7,9 @@ steps:
     image: maven:3.6.3-jdk-11-slim
     commands:
       - mvn package -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
+trigger:
+  branch:
+    - master
+  event:
+    - push
