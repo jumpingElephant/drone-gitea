@@ -1,4 +1,5 @@
 [![Build Status](http://192.168.39.111:30881/api/badges/alex/code-with-quarkus/status.svg)](http://192.168.39.111:30881/alex/code-with-quarkus)
+
 # code-with-quarkus project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
