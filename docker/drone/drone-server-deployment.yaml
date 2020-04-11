@@ -22,11 +22,11 @@ spec:
             - name: DRONE_GITEA
               value: "true"
             - name: DRONE_GITEA_CLIENT_ID
-              value: 5206d6db-bbe4-44cb-a53c-893fdc6df298
+              value: bfdaa223-457f-450f-b703-cdea3c37b867
             - name: DRONE_GITEA_CLIENT_SECRET
-              value: X-HLuaoKL3V1ALrH_73lqjI6BhtTTxXGDjqkFYVPkyw=
+              value: 7er0EwuEAz4k5j0IWCw_up7kLJ0rlyOKT22LvCfJ5KA=
             - name: DRONE_GITEA_SERVER
-              value: http://192.168.39.111:32016
+              value: http://192.168.39.111:30956
             - name: DRONE_LOGS_DEBUG
               value: "true"
             - name: DRONE_OPEN
