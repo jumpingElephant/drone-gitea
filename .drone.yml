@@ -6,6 +6,10 @@ clone:
   disable: true
 
 steps:
+  - name: crawl
+    image: ubuntu
+    commands:
+      - curl http://gitea:3000
   - name: clone
     image: alpine/git
     commands:
