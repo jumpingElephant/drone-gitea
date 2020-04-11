@@ -9,8 +9,7 @@ steps:
   - name: clone
     image: alpine/git
     commands:
-      - sleep 30
-      - git clone http://web:3000/alex/code-with-quarkus.git .
+      - git clone http://172.17.0.7:3000/alex/code-with-quarkus.git .
       - git checkout $DRONE_COMMIT
   - name: package
     image: maven:3.6.3-jdk-11-slim
