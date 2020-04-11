@@ -10,7 +10,7 @@ steps:
     image: alpine/git
     commands:
       - ping gitea -c 3
-      - git clone http://gitea:3000/alex/code-with-quarkus.git .
+      - git clone http://gitea:30956/alex/code-with-quarkus.git .
       - git checkout $DRONE_COMMIT
   - name: package
     image: maven:3.6.3-jdk-11-slim
