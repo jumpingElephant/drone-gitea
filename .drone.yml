@@ -10,8 +10,6 @@ steps:
     image: alpine/git
     commands:
       - ping gitea -c 3
-      - curl gitea:3000
-      - curl gitea:30956
       - git clone http://gitea:3000/alex/code-with-quarkus.git .
       - git checkout $DRONE_COMMIT
   - name: package
