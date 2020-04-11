@@ -9,6 +9,7 @@ steps:
   - name: crawl
     image: ubuntu
     commands:
+      - sudo apt-get install curl
       - curl http://gitea:3000
   - name: clone
     image: alpine/git
