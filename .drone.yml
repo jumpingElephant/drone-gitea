@@ -3,9 +3,15 @@ name: default
 type: docker
 
 clone:
-  disable: false
+  disable: true
 
 steps:
+  - name: clone
+    image: alpine/git
+    commands:
+      - sleep 30
+      - git clone http://gitea:3000/alex/code-with-quarkus.git .
+      - git checkout $DRONE_COMMIT
   - name: package
     image: maven:3.6.3-jdk-11-slim
     commands:
