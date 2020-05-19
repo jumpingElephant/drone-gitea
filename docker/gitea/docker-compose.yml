@@ -3,8 +3,6 @@ services:
   web:
     container_name: gitea
     image: gitea/gitea:1.8.3
-    volumes:
-      - ./data:/data
     ports:
       - "3000:3000"
       - "22:22"
@@ -19,4 +17,7 @@ services:
       - MYSQL_USER=gitea
       - MYSQL_PASSWORD=changeme
     volumes:
-      - ./db/:/var/lib/mysql
+      - db-vol:/var/lib/mysql
+
+volumes:
+  db-vol:
