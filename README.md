@@ -1,4 +1,4 @@
-[![Build Status](http://192.168.39.111:31540/api/badges/alex/code-with-quarkus/status.svg)](http://192.168.39.111:31540/alex/code-with-quarkus)
+[![Build Status](http://drone/api/badges/alex/code-with-quarkus/status.svg)](http://drone/alex/code-with-quarkus)
 
 # code-with-quarkus project
 
