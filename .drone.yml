@@ -6,11 +6,6 @@
       disable: true
 
     steps:
-      - name: crawl
-        image: ubuntu
-        commands:
-          - apt-get update && apt-get install curl -y
-          - curl http://gitea:3000
       - name: clone
         image: alpine/git
         commands:
