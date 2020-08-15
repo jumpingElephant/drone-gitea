@@ -19,7 +19,7 @@ steps:
   - name: docker
     image: plugins/docker
     settings:
-      repo: example.com/foo/bar
+      repo: nexus/foo/bar
       dockerfile: src/main/docker/Dockerfile.jvm
       registry: nexus
 
