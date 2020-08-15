@@ -1,15 +1,29 @@
-kind: pipeline
-name: default
-type: docker
+    kind: pipeline
+    name: default
+    type: docker
 
-steps:
-  - name: package
-    image: maven:3.6.3-jdk-11-slim
-    commands:
-      - mvn package -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+    clone:
+      disable: true
 
-trigger:
-  branch:
-    - master
-  event:
-    - push
+    steps:
+      - name: crawl
+        image: ubuntu
+        commands:
+          - apt-get update && apt-get install curl -y
+          - curl http://gitea:3000
+      - name: clone
+        image: alpine/git
+        commands:
+          - ping gitea -c 3
+          - git clone http://gitea:3000/alex/code-with-quarkus.git .
+          - git checkout $DRONE_COMMIT
+      - name: package
+        image: maven:3.6.3-jdk-11-slim
+        commands:
+          - mvn package -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
+    trigger:
+      branch:
+        - master
+      event:
+        - push
