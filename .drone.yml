@@ -21,6 +21,7 @@ steps:
     settings:
       repo: example.com/foo/bar
       dockerfile: src/main/docker/Dockerfile.jvm
+      registry: nexus
 
 trigger:
   branch:
