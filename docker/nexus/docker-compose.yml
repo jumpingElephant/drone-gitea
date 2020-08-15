@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  drone-runner:
+    container_name: nexus
+    image: sonatype/nexus3:3.26.1
+    ports:
+      - 8081:8081
+    networks:
+      - gitea_default
+
+networks:
+  gitea_default:
+    external: true
