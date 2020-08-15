@@ -18,7 +18,12 @@ services:
       DRONE_SERVER_HOST: 'drone'
       DRONE_SERVER_PROTO: 'http'
       DRONE_LOGS_DEBUG: 'true'
-      DRONE_RUNNER_NETWORKS: 'drone-gitea_default'
+      DRONE_LOGS_TEXT: 'true'
+      DRONE_LOGS_PRETTY: 'true'
+      DRONE_LOGS_COLOR: 'true'
+      DRONE_RUNNER_NETWORKS: gitea_default
+    networks:
+      - gitea_default
 
   drone-runner:
     container_name: runner
@@ -30,6 +35,12 @@ services:
       DRONE_RPC_PROTO: http
       DRONE_RPC_SECRET: e47c15b45f85ae80ae039f8dfb1bd7e7
       DRONE_RUNNER_NAME: drone-1
-      DRONE_RUNNER_NETWORKS: 'drone-gitea_default'
+      DRONE_RUNNER_NETWORKS: gitea_default
     ports:
-    - 3003:3000
+      - 3003:3000
+    networks:
+      - gitea_default
+
+networks:
+  gitea_default:
+    external: true
