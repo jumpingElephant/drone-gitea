@@ -1,24 +1,29 @@
-    kind: pipeline
-    name: default
-    type: docker
+kind: pipeline
+name: default
+type: docker
 
-    clone:
-      disable: true
+clone:
+  disable: true
 
-    steps:
-      - name: clone
-        image: alpine/git
-        commands:
-          - ping gitea -c 3
-          - git clone http://gitea:3000/alex/code-with-quarkus.git .
-          - git checkout $DRONE_COMMIT
-      - name: package
-        image: maven:3.6.3-jdk-11-slim
-        commands:
-          - mvn package -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+steps:
+  - name: clone
+    image: alpine/git
+    commands:
+      - ping gitea -c 3
+      - git clone http://gitea:3000/alex/code-with-quarkus.git .
+      - git checkout $DRONE_COMMIT
+  - name: package
+    image: maven:3.6.3-jdk-11-slim
+    commands:
+      - mvn package -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: example.com/foo/bar
+      dockerfile: src/main/docker/Dockerfile.jvm
 
-    trigger:
-      branch:
-        - master
-      event:
-        - push
+trigger:
+  branch:
+    - master
+  event:
+    - push
