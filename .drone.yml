@@ -12,16 +12,20 @@ steps:
       - ping gitea -c 3
       - git clone http://gitea:3000/alex/code-with-quarkus.git .
       - git checkout $DRONE_COMMIT
-  - name: package
-    image: maven:3.6.3-jdk-11-slim
-    commands:
-      - mvn package -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
+  #  - name: package
+  #    image: maven:3.6.3-jdk-11-slim
+  #    commands:
+  #      - mvn package -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
   - name: docker
     image: plugins/docker
     settings:
-      repo: nexus/foo/bar
+      registry: nexus:8123
+      repo: nexus:8123/foo/bar
       dockerfile: src/main/docker/Dockerfile.jvm
-      registry: nexus
+      username: admin
+      password: p123p123
 
 trigger:
   branch:
