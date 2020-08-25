@@ -12,8 +12,8 @@ services:
       DRONE_ADMIN: 'alex'
       DRONE_GITEA: 'true'
       DRONE_GITEA_SERVER: 'http://gitea:3000'
-      DRONE_GITEA_CLIENT_ID: 'ceab77fc-71ca-45c8-88ce-b14913c3b3fd'
-      DRONE_GITEA_CLIENT_SECRET: '1QywzHvXm4sFt6mVOK0JEhPOqqs_DabtrI_qeKNL9I4='
+      DRONE_GITEA_CLIENT_ID: 'bc396c1c-e5f6-4195-af69-b708c8b16402'
+      DRONE_GITEA_CLIENT_SECRET: '7W-zYF1MlLLjuQJkR5CAnt9Z37fcE4kzWflsyuVA_Go='
       DRONE_RPC_SECRET: 'e47c15b45f85ae80ae039f8dfb1bd7e7'
       DRONE_SERVER_HOST: 'drone'
       DRONE_SERVER_PROTO: 'http'
@@ -23,7 +23,7 @@ services:
       DRONE_LOGS_COLOR: 'true'
       DRONE_RUNNER_NETWORKS: gitea_default
     networks:
-      - gitea_default
+      - drone-gitea_default
 
   drone-runner:
     container_name: runner
@@ -35,12 +35,12 @@ services:
       DRONE_RPC_PROTO: http
       DRONE_RPC_SECRET: e47c15b45f85ae80ae039f8dfb1bd7e7
       DRONE_RUNNER_NAME: drone-1
-      DRONE_RUNNER_NETWORKS: gitea_default
+      DRONE_RUNNER_NETWORKS: drone-gitea_default
     ports:
       - 3003:3000
     networks:
-      - gitea_default
+      - drone-gitea_default
 
 networks:
-  gitea_default:
+  drone-gitea_default:
     external: true

@@ -26,6 +26,7 @@ steps:
       dockerfile: src/main/docker/Dockerfile.jvm
       username: admin
       password: p123p123
+      insecure: true
 
 trigger:
   branch:
