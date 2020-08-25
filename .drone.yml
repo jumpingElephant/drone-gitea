@@ -13,10 +13,10 @@ steps:
       - git clone http://gitea:3000/alex/code-with-quarkus.git .
       - git checkout $DRONE_COMMIT
 
-  #  - name: package
-  #    image: maven:3.6.3-jdk-11-slim
-  #    commands:
-  #      - mvn package -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+      - name: package
+        image: maven:3.6.3-jdk-11-slim
+        commands:
+          - mvn package -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
   - name: docker
     image: plugins/docker
@@ -27,6 +27,7 @@ steps:
       username: admin
       password: p123p123
       insecure: true
+      auto_tag: true
 
 trigger:
   branch:
