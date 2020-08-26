@@ -23,7 +23,7 @@ steps:
     settings:
       registry: nexus:8123
       repo: nexus:8123/foo/bar
-      dockerfile: src/main/docker/Dockerfile.jvm
+      dockerfile: src/main/docker/Dockerfile
       username: admin
       password: p123p123
       insecure: true
