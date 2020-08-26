@@ -29,6 +29,7 @@ steps:
       insecure: true
       auto_tag: true
       pull_image: false
+      no_cache: false
 
 trigger:
   branch:
