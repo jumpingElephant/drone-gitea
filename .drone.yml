@@ -17,7 +17,7 @@ steps:
       username: admin
       password: p123p123
       insecure: true
-      auto_tag: true
+      tag: "${DRONE_TAG}"
       pull_image: false
       no_cache: false
 
