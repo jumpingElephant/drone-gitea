@@ -18,8 +18,7 @@ steps:
       password: p123p123
       insecure: true
       auto_tag: true
-      pull_image: false
-      no_cache: false
+      auto_tag_suffix: foo-bar
 
 trigger:
   branch:
