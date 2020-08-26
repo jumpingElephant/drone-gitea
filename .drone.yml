@@ -8,11 +8,6 @@ steps:
     commands:
       - mvn package -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
-  - name: get-tags
-    image: alpine/git
-    commands:
-      - git describe --abbrev=0 --tags > .tags
-
   - name: docker
     image: plugins/docker
     settings:
