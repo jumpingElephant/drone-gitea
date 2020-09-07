@@ -24,7 +24,7 @@ steps:
       branch:
         - master
 
-  - name: publish-snapshot
+  - name: publish-latest
     image: plugins/docker
     settings:
       registry: nexus:8123
