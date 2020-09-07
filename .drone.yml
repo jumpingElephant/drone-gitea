@@ -62,6 +62,3 @@ trigger:
     - push
     - tag
     - pull_request
-  branch:
-    - master
-    - develop
