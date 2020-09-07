@@ -18,11 +18,24 @@ steps:
       password: p123p123
       insecure: true
       auto_tag: true
-      auto_tag_suffix: foo-bar
+    when:
+      event:
+        - tag
+
+  - name: docker
+    image: plugins/docker
+    settings:
+      registry: nexus:8123
+      repo: nexus:8123/foo/bar
+      dockerfile: src/main/docker/Dockerfile
+      username: admin
+      password: p123p123
+      insecure: true
+      auto_tag: true
+      auto_tag_suffix: rc
     when:
       event:
         - push
-        - tag
 
 
 trigger:
