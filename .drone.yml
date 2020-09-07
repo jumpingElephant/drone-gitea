@@ -21,6 +21,8 @@ steps:
     when:
       event:
         - tag
+      branch:
+        - master
 
   - name: publish-snapshot
     image: plugins/docker
@@ -32,13 +34,18 @@ steps:
       password: p123p123
       insecure: true
       auto_tag: true
-      auto_tag_suffix: rc
+      auto_tag_suffix: snapshot
     when:
       event:
         - push
+      branch:
+        - master
 
 
 trigger:
   event:
     - push
     - tag
+  branch:
+    - master
+    - develop
