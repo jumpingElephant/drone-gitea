@@ -49,8 +49,7 @@ steps:
       username: admin
       password: p123p123
       insecure: true
-      auto_tag: true
-      auto_tag_suffix: snapshot
+      tags: snapshot
     when:
       event:
         - push
