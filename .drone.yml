@@ -24,6 +24,22 @@ steps:
       branch:
         - master
 
+  - name: publish-latest
+    image: plugins/docker
+    settings:
+      registry: nexus:8123
+      repo: nexus:8123/foo/bar
+      dockerfile: src/main/docker/Dockerfile
+      username: admin
+      password: p123p123
+      insecure: true
+      tags: latest
+    when:
+      event:
+        - push
+      branch:
+        - master
+
   - name: publish-snapshot
     image: plugins/docker
     settings:
@@ -39,13 +55,14 @@ steps:
       event:
         - push
       branch:
-        - master
+        - develop
 
 
 trigger:
   event:
     - push
     - tag
+    - pull_request
   branch:
     - master
     - develop
