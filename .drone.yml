@@ -3,7 +3,7 @@ name: default
 type: docker
 
 steps:
-#  - name: package
+  #  - name: package
   #    image: maven:3.6.3-jdk-11-slim
   #    commands:
   #      - mvn package -DskipTests=true -Dmaven.javadoc.skip=true -B -V
@@ -19,10 +19,13 @@ steps:
       insecure: true
       auto_tag: true
       auto_tag_suffix: foo-bar
+    when:
+      event:
+        - push
+        - tag
+
 
 trigger:
-  branch:
-    - master
   event:
     - push
     - tag
