@@ -8,7 +8,7 @@ steps:
   #    commands:
   #      - mvn package -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
-  - name: docker
+  - name: publish-release
     image: plugins/docker
     settings:
       registry: nexus:8123
@@ -22,7 +22,7 @@ steps:
       event:
         - tag
 
-  - name: docker
+  - name: publish-snapshot
     image: plugins/docker
     settings:
       registry: nexus:8123
