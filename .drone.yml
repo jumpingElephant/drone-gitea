@@ -9,6 +9,12 @@ steps:
       - git tag
       - git fetch --tags
       - git tag
+    when:
+      event:
+        - push
+      branch:
+        - master
+
   #  - name: package
   #    image: maven:3.6.3-jdk-11-slim
   #    commands:
