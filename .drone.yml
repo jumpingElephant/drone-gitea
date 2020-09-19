@@ -3,24 +3,40 @@ name: default
 type: docker
 
 steps:
+  - name: fetch
+    image: alpine/git
+    commands:
+      - git tag
+      - git fetch --tags
+      - git tag
   #  - name: package
   #    image: maven:3.6.3-jdk-11-slim
   #    commands:
   #      - mvn package -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
-  - name: publish-release
-    image: plugins/docker
-    settings:
-      registry: nexus:8123
-      repo: nexus:8123/foo/bar
-      dockerfile: src/main/docker/Dockerfile
-      username: admin
-      password: p123p123
-      insecure: true
-      auto_tag: true
+  #  - name: publish-release
+  #    image: plugins/docker
+  #    settings:
+  #      registry: nexus:8123
+  #      repo: nexus:8123/foo/bar
+  #      dockerfile: src/main/docker/Dockerfile
+  #      username: admin
+  #      password: p123p123
+  #      insecure: true
+  #      auto_tag: true
+  #    when:
+  #      event:
+  #        - tag
+
+  - name: bump tag
+    image: alpine/git
+    commands:
+      - git tag $(./semver bump patch $(git ls-remote --tags origin | grep --only-matching 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*' | sort --reverse | head --lines=1 | grep --only-matching '[^\/]*$'))
     when:
       event:
-        - tag
+        - push
+      branch:
+        - master
 
   - name: publish-latest
     image: plugins/docker
@@ -32,6 +48,16 @@ steps:
       password: p123p123
       insecure: true
       tags: latest
+    when:
+      event:
+        - push
+      branch:
+        - master
+
+  - name: push tag
+    image: alpine/git
+    commands:
+      - git push --tags
     when:
       event:
         - push
